@@ -28,16 +28,17 @@ class Round
   end
 
   def percent_correct
-    number_correct.to_f / deck.count * 100
+    number_correct.to_f / deck.cards.count * 100
   end
 
   def start
-    puts "Welcome! You're playing with #{deck.count} cards."
+    # require "pry" ; binding.pry
+    puts "Welcome! You're playing with #{deck.cards.count} cards."
     puts "-------------------------------------------------"
 
-    until round_count == deck.count
+    until round_count == deck.cards.count
 
-      puts "This is card number #{@round_count + 1} out of #{deck.count}."
+      puts "This is card number #{@round_count + 1} out of #{deck.cards.count}."
       puts "Question: #{current_card.question}"
       guess = gets.chomp
       record_guess(guess, current_card)
@@ -46,7 +47,7 @@ class Round
     end
 
     puts "****** Game over! ******"
-    puts "You had #{number_correct} correct guesses out of #{deck.count} for a score of #{percent_correct.to_i}%."
+    puts "You had #{number_correct} correct guesses out of #{deck.cards.count} for a score of #{percent_correct.to_i}%."
   end
 
 

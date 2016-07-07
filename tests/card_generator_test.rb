@@ -5,7 +5,15 @@ require './lib/deck'
 require './lib/card'
 require './lib/guess'
 require './lib/round'
-require './lib/cards'
 
+require './lib/card_generator'
 
 class CardGeneratorTest < Minitest::Test
+
+  def test_pool_cards_from_file
+    file = "lib/cards.txt"
+    deck = CardGenerator.new(file).cards
+    # require "pry" ; binding.pry
+  end
+
+end
