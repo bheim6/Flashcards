@@ -110,7 +110,6 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
     guess = Guess.new("Juneau", round.current_card)
     round.record_guess("Juneau", card_1)
-    round.guesses.first.feedback
     round.record_guess("3", card_2)
 
     assert_equal 50, round.percent_correct

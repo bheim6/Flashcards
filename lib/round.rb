@@ -28,9 +28,37 @@ class Round
   end
 
   def percent_correct
-    number_correct.to_f / deck.cards.count * 100
+    number_correct.to_f / deck.count * 100
   end
 
+  def start
+    puts "Welcome! You're playing with #{deck.count} cards."
+    puts "-------------------------------------------------"
+    puts "This is card number #{@round_count + 1} out of #{deck.count}."
+
+    puts "Question: #{current_card.question}"
+    guess = gets.chomp
+    record_guess(guess, current_card)
+    puts @guesses.first.feedback
+
+    puts "Question: #{current_card.question}"
+    guess = gets.chomp
+    record_guess(guess, current_card)
+    puts @guesses.first.feedback
+
+    puts "Question: #{current_card.question}"
+    guess = gets.chomp
+    record_guess(guess, current_card)
+    puts @guesses.first.feedback
+
+    puts "Question: #{current_card.question}"
+    guess = gets.chomp
+    record_guess(guess, current_card)
+    puts @guesses.first.feedback
+
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{deck.count} for a score of #{percent_correct}%."
+  end
 
 
 end
