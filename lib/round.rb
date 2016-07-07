@@ -35,29 +35,15 @@ class Round
     puts "Welcome! You're playing with #{deck.count} cards."
     puts "-------------------------------------------------"
 
-    puts "This is card number #{@round_count + 1} out of #{deck.count}."
-    puts "Question: #{current_card.question}"
-    guess = gets.chomp
-    record_guess(guess, current_card)
-    puts @guesses.first.feedback
+    until round_count == deck.count
 
-    puts "This is card number #{@round_count + 1} out of #{deck.count}."
-    puts "Question: #{current_card.question}"
-    guess = gets.chomp
-    record_guess(guess, current_card)
-    puts @guesses[1].feedback
+      puts "This is card number #{@round_count + 1} out of #{deck.count}."
+      puts "Question: #{current_card.question}"
+      guess = gets.chomp
+      record_guess(guess, current_card)
+      puts @guesses[round_count - 1].feedback
 
-    puts "This is card number #{@round_count + 1} out of #{deck.count}."
-    puts "Question: #{current_card.question}"
-    guess = gets.chomp
-    record_guess(guess, current_card)
-    puts @guesses[2].feedback
-
-    puts "This is card number #{@round_count + 1} out of #{deck.count}."
-    puts "Question: #{current_card.question}"
-    guess = gets.chomp
-    record_guess(guess, current_card)
-    puts @guesses[3].feedback
+    end
 
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{deck.count} for a score of #{percent_correct.to_i}%."
